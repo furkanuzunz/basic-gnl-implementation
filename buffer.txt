@@ -1,0 +1,35 @@
+Buffer Nedir?
+Buffer , bellekte (RAM) geçici olarak veri tutmak için ayrılan bir alandır. Programlama dünyasında, özellikle giriş/çıkış işlemlerinde (I/O) buffer'lar sıklıkla kullanılır. Örneğin:
+
+Bir dosyadan veri okurken veya bir ağ bağlantısından veri alırken, veriler önce bir buffer'a alınır.
+Bu, verilerin daha düzenli ve etkili bir şekilde işlenmesini sağlar.
+Buffer'lar genellikle sabit boyutludur ve programcı tarafından dinamik olarak veya statik olarak tanımlanabilir.
+
+Buffer'ın Amacı
+Bu kodda buffer'ın amacı, muhtemelen bir metin satırı (line) veya başka bir veri kümesini tutmak. Örneğin:
+
+Eğer bir dosyadan veya standart girişten (stdin) veri okuyorsanız, bu veriler önce buffer'a alınır.
+Daha sonra, buffer'daki veriler işlenir (örneğin, bir satır okunur veya belirli bir karakter aranır).
+
+1. #define BUFSIZE 2048
+Bu satır, BUFSIZE adında bir makro tanımlar. Makro, derleme zamanında yerine konulan bir sabittir. Burada BUFSIZE, 2048 bayt olarak ayarlanmıştır. Yani, bu buffer'ın boyutu 2048 bayt olacaktır.
+
+2. malloc(BUFSIZE)
+malloc, C dilinde dinamik bellek ayırma yapmak için kullanılan bir fonksiyondur. malloc(BUFSIZE) ifadesi, bellekte 2048 baytlık bir alan ayırır ve bu alanın başlangıç adresini döndürür.
+
+malloc'ın dönüş değeri bir void* (void pointer) olduğu için, bu değeri uygun bir tipe dönüştürmek gerekir. Örneğin, char* tipine dönüştürülür.
+Eğer bellek ayrılamazsa, malloc NULL döner.
+3. char *p, *s;
+Burada iki işaretçi (pointer) tanımlanıyor:
+
+p: Bellekte ayrılan buffer'ın başlangıç adresini tutacak.
+s: Başka bir işaretçi, muhtemelen buffer üzerinde gezinmek veya işlem yapmak için kullanılacak.
+4. s = p = malloc(BUFSIZE);
+Bu satırda şunlar oluyor:
+
+malloc(BUFSIZE) ile 2048 baytlık bir bellek alanı ayrılıyor.
+Ayrılan alanın başlangıç adresi, p işaretçisine atanıyor.
+Aynı adres, s işaretçisine de atanıyor.
+Yani, hem p hem de s aynı bellek bölgesini gösteriyor.
+
+

@@ -1,0 +1,8 @@
+gcc a.c ile derle
+./a < test.txt 
+ile dosyadan stdin stringleri al ciktiyi gör.
+
+bash terminalinde denemek icin
+$ for i in $(seq 0 10000); do printf "A"; done; echo 
+calistir.
+ciktiyi gor
